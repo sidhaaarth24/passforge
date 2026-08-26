@@ -1,6 +1,6 @@
 # PassForge
 
-> A modern password generator and password strength checker built with HTML, CSS, and JavaScript.
+> A modern password generator and password strength checker.
 
 PassForge is a modern, responsive, client-side web application designed to help users generate customizable passwords and evaluate the strength of existing passwords.
 
