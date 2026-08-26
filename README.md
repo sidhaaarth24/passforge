@@ -10,7 +10,7 @@ It provides control over password length and character types, real-time password
 
 ## Live Demo
 
-[**PassForge**](https://sidhaaarth24.github.io/passforge/)
+https://sidhaaarth24.github.io/passforge/
 
 ---
 
