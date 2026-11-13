@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1712">
+  <title>PassForge | Password Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="PassForge home">PassForge</a>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme" aria-pressed="false">◐</button>
+    </header>
+
+    <main>
+      <div class="workspace">
+        <section class="panel generator" id="generator">
+          <div class="panel-head">
+            <div><div class="kicker">01 / CREATE</div><h2>Password Generator</h2></div>
+          </div>
+          <label class="field-label" for="passwordOutput">YOUR NEW PASSWORD</label>
+          <div class="password-display">
+            <input id="passwordOutput" type="text" value="" placeholder="Your password appears here" autocomplete="off" spellcheck="false" aria-label="Generated password">
+            <button class="icon-button" id="toggleVisibility" title="Show or hide password" aria-label="Show or hide password">◉</button>
+            <button class="copy-button" id="copyButton"><span>▢</span> Copy</button>
+          </div>
+          <div class="strength-line"><span id="generatorStrength">Ready to generate</span><span id="generatorBits">— bits entropy</span></div>
+          <div class="meter" aria-label="Generated password strength"><span id="generatorMeter"></span></div>
+
+          <div class="options-title"><span>CONFIGURE PASSWORD</span><span class="muted">CUSTOMIZE YOUR OUTPUT</span></div>
+          <div class="length-row"><label for="length">Password length</label><strong id="lengthValue">20</strong></div>
+          <input id="length" class="range" type="range" min="8" max="64" value="20">
+          <div class="range-labels"><span>8 characters</span><span>64 characters</span></div>
+
+          <div class="checks">
+            <label class="check"><input type="checkbox" id="uppercase" checked><span class="fake-check"></span><span>Uppercase <small>A–Z</small></span></label>
+            <label class="check"><input type="checkbox" id="lowercase" checked><span class="fake-check"></span><span>Lowercase <small>a–z</small></span></label>
+            <label class="check"><input type="checkbox" id="numbers" checked><span class="fake-check"></span><span>Numbers <small>0–9</small></span></label>
+            <label class="check"><input type="checkbox" id="symbols" checked><span class="fake-check"></span><span>Symbols <small>!@#$%</small></span></label>
+          </div>
+          <label class="check exclude"><input type="checkbox" id="exclude"><span class="fake-check"></span><span>Exclude ambiguous characters <small>i, l, 1, L, o, 0, O</small></span></label>
+          <button class="primary-button" id="generateButton">
+            <span class="button-label">Generate secure password</span>
+          </button>
+          <p class="micro-note"><span>⌁</span> Generated on this device using the browser's cryptographic random generator.</p>
+        </section>
+
+        <section class="panel checker" id="checker">
+          <div class="panel-head">
+            <div><div class="kicker">02 / ANALYZE</div><h2>Password Checker</h2></div>
+          </div>
+          <label class="field-label" for="checkInput">ENTER A PASSWORD TO TEST</label>
+          <div class="password-display checker-input">
+            <input id="checkInput" type="password" placeholder="Type or paste a password…" autocomplete="off" spellcheck="false">
+            <button class="icon-button" id="checkVisibility" title="Show or hide password" aria-label="Show or hide password">◉</button>
+          </div>
+          <div class="score-card">
+            <div class="score-top"><div><span class="muted-label">STRENGTH RATING</span><h3 id="strengthLabel">Not checked yet</h3></div><div class="score-number"><strong id="score">—</strong><small>/ 100</small></div></div>
+            <div class="meter large"><span id="checkerMeter"></span></div>
+            <div class="score-meta"><span id="entropy">Entropy: —</span><span id="crackTime">Estimated crack time: —</span></div>
+          </div>
+          <div class="analysis-title">SECURITY CHECKLIST</div>
+          <ul class="checklist">
+            <li id="ruleLength"><span class="rule-icon">–</span><span>At least 12 characters</span><small>12+</small></li>
+            <li id="ruleUpper"><span class="rule-icon">–</span><span>Contains uppercase letters</span><small>A–Z</small></li>
+            <li id="ruleLower"><span class="rule-icon">–</span><span>Contains lowercase letters</span><small>a–z</small></li>
+            <li id="ruleNumber"><span class="rule-icon">–</span><span>Contains numbers</span><small>0–9</small></li>
+            <li id="ruleSymbol"><span class="rule-icon">–</span><span>Contains symbols</span><small>!@#</small></li>
+            <li id="ruleCommon"><span class="rule-icon">–</span><span>Avoids common password patterns</span><small>SAFE</small></li>
+          </ul>
+        </section>
+      </div>
+    </main>
+    <footer class="footer">
+      <p>© 2026 PassForge. All rights reserved.</p>
+      <p>Developed by <a href="https://sidhaaarth24.github.io/sidsphere/"><strong>Sidharth Kumar</strong></a></p>
+    </footer>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
